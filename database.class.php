@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * @author 		Gianluca Raberger
+ * @author 	Gianluca Raberger
  * @version 	1.0
  * @copyright	2011 Gianluca Raberger <http://www.gianluca311.com>
- * @license		GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
  
 class Database {
