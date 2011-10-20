@@ -28,7 +28,7 @@ class Database {
 		$this->password = $dbc['password'];
 		$this->database = $dbc['dbname'];
 		$this->errorLoggingDirectory = dirname(__FILE__).'/logs/';
-		if($this->test() === true) {
+		if($this->preCheck() === true) {
 			$this->connect();
 			$this->selectDatabase();
 		}
@@ -193,7 +193,7 @@ class Database {
 	 *
 	 */
 	 
-	 protected function test() {
+	 protected function preCheck() {
 		$errorTotal = 0;
 		$errors = array();
 		
@@ -214,54 +214,56 @@ class Database {
 		if($errorTotal == 0)
 			return true;
 		else {
-			?> <!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
-  <title>phpMySQLiDatabase-class</title>
-  <style type="text/css">
-	body {
-		margin: 0;
-		font-family: Helvetica, Arial, FreeSans, san-serif;
-		color: #000000;
-	}
-	#header {
-		width: 100%;
-		margin-top: 5px;
-		font-size: 0.8em;
-		padding-bottom:5px;
-		border-bottom:1px solid #000;
-	}
-	#container {
-		margin: 0 auto;
-		width: 700px;
-		padding-top: 40px;
-		font-size: 0.8em;
-	}
-  </style>
-</head>
-<body>
-	<div id="header">
-		<strong>&nbsp;phpMySQLiDatabase-class</strong>
-	</div>
-	<div id="container">
-		<h2>Error while testing</h2>
-		<table>
-		<?php
-		foreach($errors as $values) {
-		?>
-		<tr><td><img src="data:image/gif;base64,R0lGODlhEAAQANUAAO8AAP3ExPdBMfkoI/5RUfEaE//x8e4SEv9GQvcyMv7q6v8AAP9pXPhKO/k6
-OvYcF/tWSP5hVPUJCf8TE/ouKfUfGf/39/dKQv/MzP8zM/xKSv1eUf5mWfwoKPYQEO8XF/okHvcA
-APw7N/wmIftXSfpSQ/9aV////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEHACcALAAAAAAQABAAAAaQwJNw
-SCwWJ4ukcmI8TToMjpQTGXmOUERmSxFtQFfhk2HCECgUDUYDAQsXHATGYNBoFAYMpQR4czIEeHR0
-Dg8NfScLERlpggYOHh6HbxEdHXeDkJKICxsdCI4GCgkSApwbGXMKDg54AQ+mQh4gJHKaCQEJAgUf
-Q7MlA5EeErC8RR4VDcoCzMZGBwDR0gdN1UVBADs=" /></td><td><?php echo $values; ?></td></tr>
-		<?php } ?>
-		</table>
-	</div>
-</body>
-</html><?php exit();
+			?> 
+		<!DOCTYPE html>
+		<html>
+			<head>
+			  <meta charset='utf-8'>
+			  <title>phpMySQLiDatabase-class</title>
+			  <style type="text/css">
+				body {
+					margin: 0;
+					font-family: Helvetica, Arial, FreeSans, san-serif;
+					color: #000000;
+				}
+				#header {
+					width: 100%;
+					margin-top: 5px;
+					font-size: 0.8em;
+					padding-bottom:5px;
+					border-bottom:1px solid #000;
+				}
+				#container {
+					margin: 0 auto;
+					width: 700px;
+					padding-top: 40px;
+					font-size: 0.8em;
+				}
+			  </style>
+			</head>
+		<body>
+			<div id="header">
+				<strong>&nbsp;phpMySQLiDatabase-class</strong>
+			</div>
+			<div id="container">
+				<h2>Error while testing</h2>
+				<table>
+				<?php
+				foreach($errors as $values) {
+				?>
+				<tr><td><img src="data:image/gif;base64,R0lGODlhEAAQANUAAO8AAP3ExPdBMfkoI/5RUfEaE//x8e4SEv9GQvcyMv7q6v8AAP9pXPhKO/k6
+		OvYcF/tWSP5hVPUJCf8TE/ouKfUfGf/39/dKQv/MzP8zM/xKSv1eUf5mWfwoKPYQEO8XF/okHvcA
+		APw7N/wmIftXSfpSQ/9aV////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEHACcALAAAAAAQABAAAAaQwJNw
+		SCwWJ4ukcmI8TToMjpQTGXmOUERmSxFtQFfhk2HCECgUDUYDAQsXHATGYNBoFAYMpQR4czIEeHR0
+		Dg8NfScLERlpggYOHh6HbxEdHXeDkJKICxsdCI4GCgkSApwbGXMKDg54AQ+mQh4gJHKaCQEJAgUf
+		Q7MlA5EeErC8RR4VDcoCzMZGBwDR0gdN1UVBADs=" /></td><td><?php echo $values; ?></td></tr>
+				<?php } ?>
+				</table>
+			</div>
+		</body>
+		</html>
+	<?php exit();
 		}
 	 }
 }
