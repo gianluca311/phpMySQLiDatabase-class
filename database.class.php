@@ -124,7 +124,7 @@ class Database {
 	/**
 	 * Counts number of rows in a result returned by a SELECT query.
 	 *
-	 * @param			$result	
+	 * @param	integer				$result	
 	 * @return 	integer				number of rows in a result
 	 */
 	public function countRows($result = null) {
