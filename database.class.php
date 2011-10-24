@@ -198,9 +198,9 @@ class Database {
 		$errors = array();
 		
 		//checking PHP Version
-		if(strnatcmp(phpversion(),'5.2.10') < 0) {
+		if(version_compare(PHP_VERSION, '5.3.0') >= 0) {
 			$errorTotal++;
-			$errors[] = "PHP Version is older than 5.2.10";
+			$errors[] = "PHP Version is older than 5.3.0";
 		}
 		if(!function_exists('mysqli_connect')) {
 			$errorTotal++;
