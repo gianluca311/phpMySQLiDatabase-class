@@ -11,7 +11,7 @@ $dbc = array("host" => "localhost", "username" => "dbuser", "password" => "1234"
 $DB = new Database($dbc);
 
 $result = $DB->sendQuery("SELECT firstname FROM example");
-while($row = $DB->fetchArray($result) {
+while($row = $DB->fetchArray($result)) {
 	//some code here
 }
 
