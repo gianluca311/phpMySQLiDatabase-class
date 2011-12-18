@@ -206,7 +206,7 @@ class Database {
 			$errorTotal++;
 			$errors[] = "MySQLi is not supported";
 		}
-		if(!is_writeable($this->errorLoggingDirectory)) {
+		if(!is_writeable($this->errorLoggingDirectory) && $this->errorLogging === true) {
 			$errorTotal++;
 			$errors[] = "Error logging directory is not writeable";
 		}
