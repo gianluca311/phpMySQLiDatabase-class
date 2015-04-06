@@ -4,11 +4,18 @@ This class is an enhanced MySQLi class for PHP.
 
 Examples
 --------
+config.php
+```php
+<?php
+$dbc = array("host" => "localhost", "username" => "dbuser", "password" => "1234", "dbname" => "exampledb");
+?>
+```
+
+main.php
 ```php
 <?php
 include_once('database.class.php');
-$dbc = array("host" => "localhost", "username" => "dbuser", "password" => "1234", "dbname" => "exampledb");
-$DB = new Database($dbc);
+$DB = Database::getInst();
 
 $result = $DB->sendQuery("SELECT firstname FROM example");
 while($row = $DB->fetchArray($result)) {
@@ -16,6 +23,10 @@ while($row = $DB->fetchArray($result)) {
 }
 
 echo $DB->countRows($result);
+
+//in case for debugging
+$DB->sendQuery("SELECT 1+2;", true);
+
 ?>
 ```
 
