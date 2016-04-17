@@ -6,7 +6,6 @@
  * @copyright	2015 Gianluca Raberger <http://www.grdev.io>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
-namespace DUER\System;
 
 class Database {
 
